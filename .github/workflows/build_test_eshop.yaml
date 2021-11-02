@@ -8,26 +8,26 @@ jobs:
   Install:
     runs-on: ubuntu-latest
 
-  steps:
-    - name: Git Checkout
-      uses: actions/checkout@v2.4.0
-      with:
-        token: ${{ secrets.WORKFLOW_TOKEN }}
+    steps:
+      - name: Git Checkout
+        uses: actions/checkout@v2.4.0
+        with:
+          token: ${{ secrets.WORKFLOW_TOKEN }}
 
-    - name: Setup node
-      uses: actions/setup-node@v2.4.1
-      with:
-        node-version: 10
+      - name: Setup node
+        uses: actions/setup-node@v2.4.1
+        with:
+          node-version: 10
 
-    - name: Cache node modules
-      uses: actions/cache@v2
-      with:
-        path: node_modules
-        key: node_modules-${{ hashFiles('**/package-lock.json') }}
-        restore-keys: node_modules-
+      - name: Cache node modules
+        uses: actions/cache@v2
+        with:
+          path: node_modules
+          key: node_modules-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: node_modules-
 
-    - name: Install with npm
-      run: npm ci
+      - name: Install with npm
+        run: npm ci
 
   Build:
     needs: Install
