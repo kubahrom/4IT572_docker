@@ -31,7 +31,7 @@ jobs:
 
   Build:
     needs: Install
-    runs: ubuntu-latest
+    runs-on: ubuntu-latest
 
     steps:
        - name: Git Checkout
