@@ -34,7 +34,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-       - name: Git Checkout
+      - name: Git Checkout
         uses: actions/checkout@v2.4.0
         with:
           token: ${{ secrets.WORKFLOW_TOKEN }}
